@@ -15,6 +15,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => setNasaData(data));
       console.log(nasaData);
+      console.log("Nasa Data Verileri Çekildi.");
   },[]);
 
   return (
@@ -24,6 +25,7 @@ function App() {
 		İyi eğlenceler! <span role="img" aria-label='go!'>🚀</span>!
       </p>
       {nasaData && <img src={nasaData.url} alt={nasaData.title} />}
+      {nasaData && <h1>{nasaData.title}</h1>}
       {nasaData && <p>{nasaData.explanation}</p>}
       {nasaData && <p>{nasaData.date}</p>}
     </div>
