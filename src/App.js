@@ -1,5 +1,8 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Content from "./components/Content";
+
 
 import "./App.css";
 
@@ -20,14 +23,9 @@ function App() {
 
   return (
     <div className="App">
-      <p>
-        NASA uygulamasını yapmak için README.md dosyasıdaki talimatları takip edin
-		İyi eğlenceler! <span role="img" aria-label='go!'>🚀</span>!
-      </p>
-      {nasaData && <img src={nasaData.url} alt={nasaData.title} />}
-      {nasaData && <h1>{nasaData.title}</h1>}
-      {nasaData && <p>{nasaData.explanation}</p>}
-      {nasaData && <p>{nasaData.date}</p>}
+      <Header />
+      <Content nasaData = {nasaData}/>
+      <Footer />
     </div>
   );
 }
