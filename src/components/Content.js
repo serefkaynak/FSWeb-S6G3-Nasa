@@ -2,7 +2,7 @@ import React from 'react';
 import './Content.css';
 
 function LoadingComponent() {
-    return <h1>Nasa'ya Bağlanıyor...</h1>;
+    return <h1>Huston, Huston!, we have a problem.! Nasa'ya Bağlanıyoruz...</h1>;
 }
 
 function ContentTitleComponent(){
