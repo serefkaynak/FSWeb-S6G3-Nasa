@@ -11,21 +11,24 @@ function ContentTitleComponent(){
 
 function ContentDescriptionComponent(props){
 
+    const {nasaData} = props;
 
     return <div 
                 className="content">
                 <ContentTitleComponent />
-                {props.nasaData && <img src={props.nasaData.url} alt={props.nasaData.title} className="nasa-image" />}
-                {props.nasaData && <h1>{props.nasaData.title}</h1>}
-                {props.nasaData && <p>{props.nasaData.explanation}</p>}
-                {props.nasaData && <p>Date: {props.nasaData.date}</p>}
+                {<img src={nasaData?.url} className="nasa-image" />}
+                {<h1>{nasaData?.title}</h1>}
+                {<p>{nasaData?.explanation}</p>}
+                {<p>Date: {nasaData?.date}</p>}
          </div>;
 }
 
 function Content(props) {
 
+    const {nasaData} = props;
+
     return (
-        !props.nasaData === true 
+        !nasaData === true 
         ? <LoadingComponent /> 
         : <ContentDescriptionComponent nasaData={props.nasaData}/>
     );

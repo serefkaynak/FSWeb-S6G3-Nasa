@@ -11,17 +11,19 @@ const API_KEY = "OrG448C73BjcAit6gEXRdkjk4vRqDaZo8zJDZrzg";
 function App() {
 
   const [nasaData, setNasaData] = useState(null);
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
   useEffect(() => {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${date}`)
       .then((response) => response.json())
       .then((data) => setNasaData(data));
       console.log(nasaData);
       console.log("Nasa Data Verileri Çekildi.");
-  },[]);
+  },[date]);
 
   return (
     <div className="App">
+      <input type="date" onChange={(e) => setDate(e.target.value)} value={date}></input>
       <Header />
       <Content nasaData = {nasaData}/>
       <Footer />
