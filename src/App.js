@@ -23,8 +23,11 @@ function App() {
 
   return (
     <div className="App">
-      <input type="date" onChange={(e) => setDate(e.target.value)} value={date}></input>
       <Header />
+      <input className="dateSelect" 
+             type="date" 
+             onChange={(e) => setDate(e.target.value)} value={date}>
+       </input>
       <Content nasaData = {nasaData}/>
       <Footer />
     </div>
